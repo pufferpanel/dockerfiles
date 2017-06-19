@@ -19,7 +19,7 @@ RUN         apt-get update && apt-get install -y \
               lib32z1 \
               lib32stdc++6 \
            && rm -rf /var/lib/apt/lists/* \
-           && rm -rf useradd -m -d /home/pufferd pufferd
+           && useradd -m -d /home/pufferd pufferd
 
 USER        pufferd
 
