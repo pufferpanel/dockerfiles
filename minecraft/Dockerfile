@@ -4,7 +4,7 @@
 # Builds a docker image for running a Java based Minecraft server using pufferd.
 ####
 
-FROM        pufferpanel:generic
+FROM        pufferpanel/generic
 
 RUN 		apt-get update && apt-get install -y \
               openjdk-8-jre \
