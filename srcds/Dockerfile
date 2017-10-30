@@ -4,9 +4,7 @@
 # Builds a docker image for running a SRCDS server using pufferd.
 ####
 
-FROM        ubuntu:16.04
-
-ENV         DEBIAN_FRONTEND noninteractive
+FROM        pufferpanel:generic
 
 RUN         apt-get update && apt-get install -y \
               openssl \
@@ -18,9 +16,4 @@ RUN         apt-get update && apt-get install -y \
               lib32tinfo5 \
               lib32z1 \
               lib32stdc++6 \
-           && rm -rf /var/lib/apt/lists/* \
-           && useradd -m -d /home/pufferd pufferd
-
-USER        pufferd
-
-CMD         ["/bin/bash"]
+           && rm -rf /var/lib/apt/lists/*

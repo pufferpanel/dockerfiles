@@ -6,10 +6,13 @@
 
 FROM        ubuntu:16.04
 
-ENV         DEBIAN_FRONTEND noninteractive
-
-RUN         useradd -m -d /home/pufferd pufferd
+RUN         useradd -m -d /server pufferd
 
 USER        pufferd
+
+ENV         DEBIAN_FRONTEND noninteractive
+ENV 		HOME  /server
+
+WORKDIR 	/server
 
 CMD         ["/bin/bash"]
