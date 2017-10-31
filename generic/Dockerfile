@@ -12,7 +12,7 @@ RUN         useradd -m -d /server pufferd
 
 ##
 
-USER        pufferd
+USER        pufferd:pufferd
 
 ENV         DEBIAN_FRONTEND noninteractive
 ENV 		HOME  /server

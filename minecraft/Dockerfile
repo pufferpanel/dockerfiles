@@ -15,7 +15,7 @@ RUN 		apt-get update && apt-get install -y \
 			&& rm -rf /var/lib/apt/lists/*
 ##
 
-USER        pufferd
+USER        pufferd:pufferd
 
 ENV         DEBIAN_FRONTEND noninteractive
 ENV 		HOME  /server
