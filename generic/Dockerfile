@@ -8,6 +8,10 @@ FROM        ubuntu:16.04
 
 RUN         useradd -m -d /server pufferd
 
+## Add any additional commands here
+
+##
+
 USER        pufferd
 
 ENV         DEBIAN_FRONTEND noninteractive
