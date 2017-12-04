@@ -10,8 +10,9 @@ RUN         useradd -m -d /server pufferd
 
 ## Add any additional commands here
 RUN 		apt-get update && apt-get install -y \
-              openjdk-8-jre \
-			  openjdk-8-jdk \
+          openjdk-8-jre \
+          openjdk-8-jdk \
+          git \
 			&& rm -rf /var/lib/apt/lists/*
 ##
 
@@ -23,6 +24,3 @@ ENV 		HOME  /server
 WORKDIR 	/server
 
 CMD         ["/bin/bash"]
-
-
-
