@@ -10,7 +10,9 @@ RUN         useradd -m -d /server pufferd
 
 ## Add any additional commands here
 
-RUN         apt-get update && apt-get install -y \
+RUN         dpkg --add-architecture i386 && \
+            apt-get update && \
+            apt-get install -y \
               openssl \
               curl \
               git \
@@ -20,6 +22,7 @@ RUN         apt-get update && apt-get install -y \
               lib32tinfo5 \
               lib32z1 \
               lib32stdc++6 \
+              libcurl3-gnutls:i386 \
            && rm -rf /var/lib/apt/lists/*
 ##
 
