@@ -1,26 +1,11 @@
-####
-# Docker: Minecraft
-#
-# Builds a docker image for running a Java based Minecraft server using pufferd.
-####
+# Dockerfile for running a Java based Minecraft server using pufferd.
+FROM debian:9.2
+RUN useradd -m -d /server pufferd
+WORKDIR /server
 
-FROM        ubuntu:16.04
+# Add any additional commands here
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends openjdk-8-jre openjdk-8-jdk git && \
+    rm -rf /var/lib/apt/lists/*
 
-RUN         useradd -m -d /server pufferd
-
-## Add any additional commands here
-RUN 		apt-get update && apt-get install -y \
-          openjdk-8-jre \
-          openjdk-8-jdk \
-          git \
-			&& rm -rf /var/lib/apt/lists/*
-##
-
-USER        pufferd:pufferd
-
-ENV         DEBIAN_FRONTEND noninteractive
-ENV 		HOME  /server
-
-WORKDIR 	/server
-
-CMD         ["/bin/bash"]
+USER pufferd
