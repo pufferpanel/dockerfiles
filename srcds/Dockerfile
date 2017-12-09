@@ -10,3 +10,4 @@ RUN dpkg --add-architecture i386 && \
     rm -rf /var/lib/apt/lists/*
 
 USER pufferd
+ENV HOME /server

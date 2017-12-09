@@ -8,3 +8,4 @@ RUN apk add --no-cache --virtual=.run-deps git
 # Add any additional commands here
 
 USER pufferd
+ENV HOME /server

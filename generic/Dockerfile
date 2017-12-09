@@ -5,3 +5,4 @@ WORKDIR /server
 
 
 USER pufferd
+ENV HOME /server
