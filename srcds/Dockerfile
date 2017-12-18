@@ -5,7 +5,7 @@ WORKDIR /server
 
 RUN dpkg --add-architecture i386 && \
     apt-get update && \
-    apt-get install -y --no-install-recommends openssl curl git \
+    apt-get install -y openssl curl git \
       lib32gcc1 lib32tinfo5 lib32z1 lib32stdc++6 libcurl3-gnutls:i386 && \
     rm -rf /var/lib/apt/lists/*
 
