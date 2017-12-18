@@ -1,7 +1,7 @@
 # Dockerfile for running a SRCDS server using pufferd.
 FROM ubuntu:16.04
-RUN useradd -m -d /server pufferd
-WORKDIR /server
+RUN useradd -m -d /home/pufferd pufferd
+WORKDIR /home/pufferd
 
 RUN dpkg --add-architecture i386 && \
     apt-get update && \
@@ -10,4 +10,4 @@ RUN dpkg --add-architecture i386 && \
     rm -rf /var/lib/apt/lists/*
 
 USER pufferd
-ENV HOME /server
+ENV HOME /home/pufferd
