@@ -11,3 +11,4 @@ RUN dpkg --add-architecture i386 && \
 
 USER pufferd
 ENV HOME /home/pufferd
+RUN ln -s /server /home/pufferd
