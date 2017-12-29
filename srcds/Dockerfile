@@ -10,5 +10,5 @@ RUN dpkg --add-architecture i386 && \
       libtinfo5:i386 libncurses5:i386 libcurl3-gnutls:i386 && \
     rm -rf /var/lib/apt/lists/*
 
-USER pufferd
+USER pufferd:pufferd
 ENV HOME /server
