@@ -5,7 +5,7 @@ MAINTAINER Joshua Taylor <lordralex@pufferpanel.com>
 ENV LANG en_US.UTF-8
 
 RUN apt-get clean && apt-get update
-RUN apt-get install --no-install-recommends -y git ruby ruby-dev rubygems build-essential rpm openssl openssh-client
+RUN apt-get install --no-install-recommends -y git ruby ruby-dev rubygems build-essential rpm openssl openssh-client cpio
 RUN apt install --no-install-recommends -y software-properties-common && add-apt-repository ppa:ondrej/php
 RUN apt-get update
 RUN apt-get install --no-install-recommends -y php-cli php-curl php-mysql
