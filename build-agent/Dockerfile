@@ -4,11 +4,10 @@ MAINTAINER Joshua Taylor <lordralex@pufferpanel.com>
 
 ENV LANG en_US.UTF-8
 
-RUN apt-get clean && apt-get update
-RUN apt-get install --no-install-recommends -y git ruby ruby-dev rubygems build-essential rpm openssl openssh-client cpio
-RUN apt install --no-install-recommends -y software-properties-common && add-apt-repository ppa:ondrej/php
-RUN apt-get update
-RUN apt-get install --no-install-recommends -y php-cli php-curl php-mysql
+RUN echo 'US/Eastern' > /etc/timezone
+RUN apt-get clean && apt-get update && apt-get install --no-install-recommends -y git ruby ruby-dev rubygems build-essential rpm openssl openssh-client cpio
+RUN apt-get install --no-install-recommends -y software-properties-common && add-apt-repository ppa:ondrej/php
+RUN apt-get update && apt-get install --no-install-recommends -y php-cli php-curl php-mysql
 RUN curl -o /tmp/go.tar.gz https://dl.google.com/go/go1.11.1.linux-amd64.tar.gz \
     && tar zxf /tmp/go.tar.gz -C /usr/local \
     && ln -s ../go/bin/go /usr/local/bin/go
