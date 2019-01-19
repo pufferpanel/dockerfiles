@@ -4,7 +4,7 @@ MAINTAINER Joshua Taylor <lordralex@pufferpanel.com>
 
 ENV LANG en_US.UTF-8
 
-RUN echo 'US/Eastern' > /etc/timezone
+RUN echo 'US/Eastern' > /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata
 RUN apt-get clean && apt-get update && apt-get install --no-install-recommends -y git ruby ruby-dev rubygems build-essential rpm openssl openssh-client cpio
 RUN apt-get install --no-install-recommends -y software-properties-common && add-apt-repository ppa:ondrej/php
 RUN apt-get update && apt-get install --no-install-recommends -y php-cli php-curl php-mysql
@@ -21,12 +21,16 @@ RUN gem install rake \
     && gem install package_cloud
 RUN curl -o /tmp/composer.php https://getcomposer.org/installer
 RUN php /tmp/composer.php --filename=composer --install-dir=/usr/local/bin
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
+RUN apt-get update && apt-get install nodejs
 RUN go version \
     && git version \
     && dep version \
     && fpm --version \
     && package_cloud version \
     && php -v \
-    && composer --version
+    && composer --version \
+    && node -v \
+    && npm -v
 RUN rm -f /tmp/go.tar.gz /tmp/composer.php
 RUN apt-get clean
