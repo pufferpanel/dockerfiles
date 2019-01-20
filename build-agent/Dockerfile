@@ -24,7 +24,7 @@ RUN gem install rake \
 RUN curl -o /tmp/composer.php https://getcomposer.org/installer
 RUN php /tmp/composer.php --filename=composer --install-dir=/usr/local/bin
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
-RUN apt-get update && apt-get install nodejs
+RUN apt-get update && apt-get install -y nodejs
 RUN go version \
     && git version \
     && dep version \
