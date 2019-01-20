@@ -3,9 +3,11 @@ FROM jetbrains/teamcity-minimal-agent
 MAINTAINER Joshua Taylor <lordralex@pufferpanel.com>
 
 ENV LANG en_US.UTF-8
+ENV DEBIAN_FRONTEND=noninteractive 
+ENV TZ US/Eastern
 
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt-get clean && apt-get update && apt-get install --no-install-recommends -y git ruby ruby-dev rubygems build-essential rpm openssl openssh-client cpio tzdata
-RUN echo 'US/Eastern' > /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata
 RUN apt-get install --no-install-recommends -y software-properties-common && add-apt-repository ppa:ondrej/php
 RUN apt-get update && apt-get install --no-install-recommends -y php-cli php-curl php-mysql
 RUN curl -o /tmp/go.tar.gz https://dl.google.com/go/go1.11.1.linux-amd64.tar.gz \
